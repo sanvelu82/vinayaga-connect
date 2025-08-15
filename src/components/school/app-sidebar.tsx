@@ -74,7 +74,7 @@ export function AppSidebar() {
       title: `${role} Login`,
       description: `Redirecting to ${role} Portal`,
       duration: 2000,
-    })
+    })  }
 
   const handleQuickAction = (label: string, href: string) => {
     if (label === "Results") {
