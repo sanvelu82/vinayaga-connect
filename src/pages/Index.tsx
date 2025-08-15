@@ -37,7 +37,7 @@ const Index = () => {
               </Button>
               <ThemeToggle />
               <div className="text-sm text-muted-foreground hidden md:block">
-                Excellence in Education Since 1995
+                Excellence in Education Since 2014
               </div>
             </div>
           </header>

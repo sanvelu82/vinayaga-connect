@@ -41,15 +41,15 @@ export function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-accent" />
-                <span className="text-primary-foreground/80">123 Education Street, Learning City</span>
+                <span className="text-primary-foreground/80">Beldrampatti Cross Road, Jenni Kottai, Palacode - 636808</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-accent" />
-                <span className="text-primary-foreground/80">+91 12345 67890</span>
+                <span className="text-primary-foreground/80">+91 99421 27827</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-accent" />
-                <span className="text-primary-foreground/80">info@vinayagaschool.edu</span>
+                <span className="text-primary-foreground/80">svvhitech@gmail.com</span>
               </div>
             </div>
           </div>
