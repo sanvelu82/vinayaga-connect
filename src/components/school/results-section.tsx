@@ -9,8 +9,8 @@ export function ResultsSection() {
 
   const resultTypes = [
     {
-      title: "Annual Examinations",
-      description: "Class 10th & 12th Board Results",
+      title: "First MID-Term Examinations",
+      description: "Class UKG & 5th Board Results",
       icon: <Award className="w-6 h-6" />,
       status: "Available"
     },

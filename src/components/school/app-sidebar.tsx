@@ -77,7 +77,7 @@ export function AppSidebar() {
 
   const handleQuickAction = (label: string, href: string) => {
     if (label === "Results") {
-      window.open("https://google.com", "_blank")
+      window.open("https://script.google.com/macros/s/AKfycbxgk9l0ajoKvjFjpWmnPg1kJVRulAX3ABAHpE0XVctLz2RwkW42ikNaHO_5W47CkGA4Eg/exec", "_blank")
     } else if (label === "Location") {
       window.open(href, "_blank")
     } else {

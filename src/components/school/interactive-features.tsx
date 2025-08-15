@@ -6,10 +6,10 @@ import { Badge } from "@/components/ui/badge"
 export function InteractiveFeatures() {
   const [currentTime, setCurrentTime] = useState(new Date())
   const [stats, setStats] = useState({
-    students: 1250,
-    teachers: 85,
+    students: 400,
+    teachers: 20,
     achievements: 150,
-    satisfaction: 98.5
+    satisfaction: 95.5
   })
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export function InteractiveFeatures() {
 
     // Animate stats on mount
     const animateStats = () => {
-      const targets = { students: 1250, teachers: 85, achievements: 150, satisfaction: 98.5 }
+      const targets = { students: 400, teachers: 20, achievements: 10, satisfaction: 95.5 }
       let current = { students: 0, teachers: 0, achievements: 0, satisfaction: 0 }
       
       const increment = () => {
@@ -49,8 +49,8 @@ export function InteractiveFeatures() {
   }, [])
 
   const achievements = [
-    { title: "CBSE Excellence Award 2024", icon: Star, color: "text-yellow-600" },
-    { title: "Best Infrastructure 2023", icon: TrendingUp, color: "text-blue-600" },
+    { title: "Well Traning", icon: Star, color: "text-yellow-600" },
+    { title: "Best Growing ", icon: TrendingUp, color: "text-blue-600" },
     { title: "Academic Excellence", icon: BookOpen, color: "text-green-600" }
   ]
 
