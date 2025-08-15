@@ -6,7 +6,7 @@ export function HeroSection() {
   }
 
   const scrollToResults = () => {
-    document.getElementById('results-section')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('on-results-section')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
