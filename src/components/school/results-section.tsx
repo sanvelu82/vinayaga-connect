@@ -66,10 +66,13 @@ export function ResultsSection() {
                   {result.description}
                 </CardDescription>
               </CardHeader>
+                        <section id="on-results-section">
+            </section>
             </Card>
+            
           ))}
         </div>
-          <section id="on-results-section">
+
         <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           <Card className="max-w-md mx-auto shadow-elegant hover-lift transition-smooth">
             <CardHeader className="text-center">
@@ -94,7 +97,6 @@ export function ResultsSection() {
             </CardContent>
           </Card>
         </div>
-        </section>
       </div>
     </section>
   )
