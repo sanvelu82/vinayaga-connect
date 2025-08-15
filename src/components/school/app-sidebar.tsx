@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { GraduationCap, Users, BookOpen, Shield, Award, Bell, Home } from "lucide-react"
+import { GraduationCap, Users, BookOpen, Shield, Award, Bell, Home, MapPin } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { useNavigate } from "react-router-dom"
 
 import {
   Sidebar,
@@ -55,6 +56,7 @@ const loginRoles = [
 const quickActions = [
   { icon: Home, label: "Home", href: "#hero-section" },
   { icon: Award, label: "Results", href: "#results-section" },
+  { icon: MapPin, label: "Location", href: "https://maps.app.goo.gl/nqKhc4gGPuBKybdw7" },
   { icon: Bell, label: "News", href: "#footer" }
 ]
 
@@ -62,26 +64,30 @@ export function AppSidebar() {
   const { state } = useSidebar()
   const collapsed = state === "collapsed"
   const { toast } = useToast()
+  const navigate = useNavigate()
   const [activeRole, setActiveRole] = useState<string | null>(null)
 
   const handleLogin = (role: string) => {
     setActiveRole(role)
+    navigate(`/login/${role.toLowerCase()}`)
     toast({
       title: `${role} Login`,
-      description: `Welcome to Sri Vinayaga Vidyalaya School ${role} Portal`,
-      duration: 3000,
+      description: `Redirecting to ${role} Portal`,
+      duration: 2000,
     })
   }
 
   const handleQuickAction = (label: string, href: string) => {
     if (label === "Results") {
       window.open("https://google.com", "_blank")
+    } else if (label === "Location") {
+      window.open(href, "_blank")
     } else {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
     }
     toast({
       title: label,
-      description: `Navigating to ${label}`,
+      description: `${label === "Location" ? "Opening location in maps" : `Navigating to ${label}`}`,
       duration: 2000,
     })
   }

@@ -4,7 +4,9 @@ import { HeroSection } from "@/components/school/hero-section"
 import { ResultsSection } from "@/components/school/results-section"
 import { Footer } from "@/components/school/footer"
 import { InteractiveFeatures } from "@/components/school/interactive-features"
-import { Menu } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { Menu, MapPin } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const Index = () => {
   return (
@@ -23,8 +25,20 @@ const Index = () => {
                 Sri Vinayaga Vidyalaya School
               </h1>
             </div>
-            <div className="text-sm text-muted-foreground">
-              Excellence in Education Since 1995
+            <div className="flex items-center gap-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => window.open("https://maps.app.goo.gl/nqKhc4gGPuBKybdw7", "_blank")}
+                className="text-muted-foreground hover:text-primary"
+              >
+                <MapPin className="h-4 w-4 mr-1" />
+                School Location
+              </Button>
+              <ThemeToggle />
+              <div className="text-sm text-muted-foreground hidden md:block">
+                Excellence in Education Since 1995
+              </div>
             </div>
           </header>
 
