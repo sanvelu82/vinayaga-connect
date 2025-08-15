@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import schoolLogo from "@/assets/school-logo.png"
 
 export function HeroSection() {
   const scrollToLogin = () => {
@@ -26,7 +25,7 @@ export function HeroSection() {
           <div className="flex justify-center mb-8">
             <div className="relative">
               <img 
-                src={schoolLogo} 
+                src="/school-logo.png"
                 alt="Sri Vinayaga Vidyalaya School Logo" 
                 className="w-32 h-32 md:w-40 md:h-40 object-contain floating-animation shadow-glow rounded-full bg-white/10 backdrop-blur-sm p-4"
               />

@@ -1,5 +1,4 @@
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from "lucide-react"
-import schoolLogo from "@/assets/school-logo.png"
 
 export function Footer() {
   return (
@@ -10,7 +9,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <img 
-                src={schoolLogo} 
+                src="/school-logo.png"
                 alt="School Logo" 
                 className="w-10 h-10 object-contain bg-white/10 rounded-full p-1"
               />

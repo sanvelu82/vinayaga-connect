@@ -2,7 +2,6 @@ import { useState } from "react"
 import { GraduationCap, Users, BookOpen, Shield, Award, Bell, Home, MapPin } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { useNavigate } from "react-router-dom"
-import schoolLogo from "@/assets/school-logo.png"
 import {
   Sidebar,
   SidebarContent,
@@ -96,7 +95,7 @@ export function AppSidebar() {
       <SidebarHeader className="border-b bg-gradient-to-r from-primary/10 to-accent/10">
         <div className="flex items-center gap-3 p-4">
           <Avatar className="h-10 w-10 shadow-md">
-            <AvatarImage src={schoolLogo} alt="School Logo" />
+            <AvatarImage src="/school-logo.png" alt="School Logo" />
             <AvatarFallback className="bg-primary text-primary-foreground">SV</AvatarFallback>
           </Avatar>
           {(isMobile || !collapsed) && (
