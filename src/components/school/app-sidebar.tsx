@@ -61,7 +61,7 @@ const quickActions = [
 ]
 
 export function AppSidebar() {
-  const { state } = useSidebar()
+  const { state, isMobile } = useSidebar()
   const collapsed = state === "collapsed"
   const { toast } = useToast()
   const navigate = useNavigate()
@@ -75,24 +75,6 @@ export function AppSidebar() {
       description: `Redirecting to ${role} Portal`,
       duration: 2000,
     })
-      return (
-    <>
-      {/* Optional: Add a backdrop overlay for mobile */}
-      {isOpen && <div onClick={onClose} className="fixed inset-0 z-40 bg-black/50 md:hidden" />}
-
-      <Sidebar
-        className={`
-          fixed top-0 left-0 h-full z-50 transition-transform duration-300 ease-in-out
-          md:relative md:translate-x-0 
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          border-r bg-gradient-to-b from-sidebar-background to-sidebar-accent/20
-        `}
-        collapsible="icon"
-      >
-        {/* ... The rest of your sidebar content ... */}
-      </Sidebar>
-    </>
-  );
   }
 
   const handleQuickAction = (label: string, href: string) => {
@@ -118,7 +100,7 @@ export function AppSidebar() {
             <AvatarImage src={schoolLogo} alt="School Logo" />
             <AvatarFallback className="bg-primary text-primary-foreground">SV</AvatarFallback>
           </Avatar>
-          {!collapsed && (
+          {(isMobile || !collapsed) && (
             <div className="flex flex-col">
               <h2 className="text-lg font-bold text-foreground">Sri Vinayaga</h2>
               <p className="text-sm text-muted-foreground">Vidyalaya School</p>
@@ -142,7 +124,7 @@ export function AppSidebar() {
                     className="hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-105"
                   >
                     <action.icon className="mr-2 h-4 w-4" />
-                    {!collapsed && <span>{action.label}</span>}
+                    {(isMobile || !collapsed) && <span>{action.label}</span>}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -173,7 +155,7 @@ export function AppSidebar() {
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center gap-3">
                         <login.icon className="h-6 w-6 group-hover:scale-110 transition-transform" />
-                        {!collapsed && (
+                        {(isMobile || !collapsed) && (
                           <div className="flex flex-col">
                             <span className="font-semibold text-base">{login.role}</span>
                             <span className="text-xs opacity-80 font-normal">
@@ -182,7 +164,7 @@ export function AppSidebar() {
                           </div>
                         )}
                       </div>
-                      {!collapsed && login.notifications > 0 && (
+                      {(isMobile || !collapsed) && login.notifications > 0 && (
                         <Badge 
                           variant="secondary" 
                           className="ml-2 bg-accent text-accent-foreground animate-pulse"
@@ -202,7 +184,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         {/* Help Section */}
-        {!collapsed && (
+        {(isMobile || !collapsed) && (
           <SidebarGroup className="mt-auto">
             <div className="p-4 bg-gradient-to-r from-muted to-accent/10 rounded-md mx-2 mb-2">
               <p className="text-sm text-muted-foreground text-center">

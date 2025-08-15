@@ -21,8 +21,8 @@ const Index = () => {
               <SidebarTrigger className="hover:bg-primary/10 hover:text-primary transition-colors">
                 <Menu className="h-5 w-5" />
               </SidebarTrigger>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Sri Vinayaga Vidyalaya School
+              <h1 className="text-base sm:text-lg md:text-xl font-bold whitespace-nowrap bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                SVV HI - TECH
               </h1>
             </div>
             <div className="flex items-center gap-4">
