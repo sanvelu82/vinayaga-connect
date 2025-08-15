@@ -75,6 +75,10 @@ export function AppSidebar() {
       description: `Redirecting to ${role} Portal`,
       duration: 2000,
     })
+<<<<<<< HEAD
+=======
+     
+>>>>>>> 84ff1f6e07cae50cbbabd8822958a205d6998371
   }
 
   const handleQuickAction = (label: string, href: string) => {
