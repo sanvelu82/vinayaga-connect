@@ -7,7 +7,7 @@ export function ResultsSection() {
   // --- Start of new logic ---
 
   // 1. Define the target release date using useMemo to prevent recalculation on re-renders.
-  const targetDate = useMemo(() => new Date('2025-08-16T09:00:00'), []);
+  const targetDate = useMemo(() => new Date('2025-08-17T09:00:00'), []);
 
   // 2. State to hold the remaining time and a flag for when the time is up.
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
