@@ -89,7 +89,7 @@ export function ResultsSection() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-smooth" />
-              <section id="on-results-section"></section>
+              
               <CardHeader className="relative z-10">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-smooth">
@@ -106,7 +106,7 @@ export function ResultsSection() {
                   {result.description}
                 </CardDescription>
               </CardHeader>
-              
+              <section id="on-results-section"></section>
             </Card>
             
           ))}
