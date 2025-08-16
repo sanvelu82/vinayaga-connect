@@ -77,7 +77,10 @@ export function AppSidebar() {
 
   const handleQuickAction = (label: string, href: string) => {
     if (label === "Results") {
-      window.open("https://script.google.com/macros/s/AKfycbxgk9l0ajoKvjFjpWmnPg1kJVRulAX3ABAHpE0XVctLz2RwkW42ikNaHO_5W47CkGA4Eg/exec", "_blank")
+      if (label === "Results") {
+  // Find the results section by its ID and scroll to it smoothly
+  document.getElementById('on-results-section')?.scrollIntoView({ behavior: 'smooth' });
+}
     } else if (label === "Location") {
       window.open(href, "_blank")
     } else {
