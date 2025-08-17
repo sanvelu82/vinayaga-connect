@@ -44,7 +44,7 @@ export function ResultsSection() {
   // --- End of new logic ---
 
   const handleResultsClick = () => {
-    window.open('https://script.google.com/macros/s/AKfycbwtSGJ05NnHSeQRp2cLo6lMZnyfZno_-TM9HSsq_wLcxBLjp0yl8cRs8Q0jxqdxua5LJA/exec', '_blank', 'noopener,noreferrer');
+    window.open('https://script.google.com/macros/s/AKfycbyuNoWmX_CnKj2eK87KhK1Q7-ze-HOV3J4xVnblbizB7dg7d0z9B1jKWxGn2M3nKXqK2Q/exec', '_blank', 'noopener,noreferrer');
   };
 
   const resultTypes = [
