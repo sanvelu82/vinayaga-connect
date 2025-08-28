@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { GraduationCap, Users, BookOpen, Shield, Award, Bell, Home, MapPin } from "lucide-react"
+import { GraduationCap, Users, BookOpen, Shield, Award, Bell, Home, MapPin, Ticket } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { useNavigate } from "react-router-dom"
 import {
@@ -30,7 +30,7 @@ const loginRoles = [
     role: "Parent",
     icon: Users,
     description: "Monitor progress & communicate",
-    color: "text-green-600", 
+    color: "text-green-600",
     bgColor: "bg-green-50 hover:bg-green-100",
     notifications: 1
   },
@@ -55,6 +55,8 @@ const loginRoles = [
 const quickActions = [
   { icon: Home, label: "Home", href: "#hero-section" },
   { icon: Award, label: "Results", href: "#results-section" },
+  // ADD THE NEW HALL TICKET LINK HERE
+  { icon: Ticket, label: "Hall Ticket", href: "/hall-ticket" },
   { icon: MapPin, label: "Location", href: "https://maps.app.goo.gl/nqKhc4gGPuBKybdw7" },
   { icon: Bell, label: "News", href: "#footer" }
 ]
@@ -77,12 +79,11 @@ export function AppSidebar() {
 
   const handleQuickAction = (label: string, href: string) => {
     if (label === "Results") {
-      if (label === "Results") {
-  // Find the results section by its ID and scroll to it smoothly
-  document.getElementById('on-results-section')?.scrollIntoView({ behavior: 'smooth' });
-}
+      document.getElementById('on-results-section')?.scrollIntoView({ behavior: 'smooth' });
     } else if (label === "Location") {
       window.open(href, "_blank")
+    } else if (label === "Hall Ticket") {
+      navigate(href);
     } else {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
     }
@@ -166,8 +167,8 @@ export function AppSidebar() {
                         )}
                       </div>
                       {(isMobile || !collapsed) && login.notifications > 0 && (
-                        <Badge 
-                          variant="secondary" 
+                        <Badge
+                          variant="secondary"
                           className="ml-2 bg-accent text-accent-foreground animate-pulse"
                         >
                           {login.notifications}

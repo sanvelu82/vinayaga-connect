@@ -10,6 +10,8 @@ import StudentLogin from "./pages/login/StudentLogin";
 import ParentLogin from "./pages/login/ParentLogin";
 import FacultyLogin from "./pages/login/FacultyLogin";
 import AdminLogin from "./pages/login/AdminLogin";
+// Import the new HallTicketDownload component
+import HallTicketDownload from "./pages/HallTicketDownload";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,7 @@ const App = () => (
             <Route path="/login/parent" element={<ParentLogin />} />
             <Route path="/login/faculty" element={<FacultyLogin />} />
             <Route path="/login/admin" element={<AdminLogin />} />
+            <Route path="/hall-ticket" element={<HallTicketDownload />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
