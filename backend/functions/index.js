@@ -76,7 +76,7 @@ exports.getStudentData = functions.https.onRequest((req, res) => {
 
       const feeDefaulterStatus = studentData[2]; // Column C for Fee Status
       if (feeDefaulterStatus && feeDefaulterStatus.trim() !== '') {
-        return res.status(403).json({ error: 'Hall Ticket cannot be issued due to a pending fee payment.' });
+        return res.status(403).json({ error: 'Hall Ticket cannot be issued due to a pending fee payment ₹ '+feeDefaulterStatus });
       }
 
       // ✅ FIX: Use .trim() to remove whitespace after splitting the string

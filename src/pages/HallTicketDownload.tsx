@@ -89,11 +89,11 @@ const HallTicketDownload = () => {
       // IMPORTANT: Update these coordinates to match your PDF templates
       switch (className) {
         case "V": return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y:585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
-        case "IV": return { name: { x: 140, y: 590 }, regNo: { x: 140, y: 565 }, class: { x: 140, y: 540 }, dob: { x: 140, y: 515 }, photo: { x: 440, y: 540, width: 100, height: 120 } };
-        case "III": return { name: { x: 140, y: 590 }, regNo: { x: 140, y: 565 }, class: { x: 140, y: 540 }, dob: { x: 140, y: 515 }, photo: { x: 440, y: 540, width: 100, height: 120 } };
-        case "II": return { name: { x: 140, y: 590 }, regNo: { x: 140, y: 565 }, class: { x: 140, y: 540 }, dob: { x: 140, y: 515 }, photo: { x: 440, y: 540, width: 100, height: 120 } };
-        case "I": return { name: { x: 140, y: 590 }, regNo: { x: 140, y: 565 }, class: { x: 140, y: 540 }, dob: { x: 140, y: 515 }, photo: { x: 440, y: 540, width: 100, height: 120 } };
-        default: return { name: { x: 150, y: 600 }, regNo: { x: 150, y: 575 }, class: { x: 150, y: 550 }, dob: { x: 150, y: 525 }, photo: { x: 450, y: 550, width: 100, height: 120 } };
+        case "IV":  return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y:585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
+        case "III":  return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y:585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
+        case "II":  return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y:585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
+        case "I":  return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y:585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
+        default:  return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y:585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
       }
     };
 
@@ -118,7 +118,7 @@ const HallTicketDownload = () => {
 
       firstPage.drawText(studentData.name, { ...coords.name, ...commonOptions });
       firstPage.drawText(studentData.registerNumber, { ...coords.regNo, ...commonOptions });
-      firstPage.drawText(`${studentData.className} - ${studentData.section}`, { ...coords.class, ...commonOptions });
+      firstPage.drawText((studentData.className === "LKG" && studentData.section === "D")? "UKG - C": `${studentData.className} - ${studentData.section}`,{ ...coords.class, ...commonOptions });
       firstPage.drawText(studentData.dob, { ...coords.dob, ...commonOptions });
 
       try {
@@ -173,6 +173,12 @@ const HallTicketDownload = () => {
                     <SelectItem value="I-A">I-A</SelectItem>
                     <SelectItem value="I-B">I-B</SelectItem>
                     <SelectItem value="I-C">I-C</SelectItem>
+                    <SelectItem value="UKG-A">UKG-A</SelectItem>
+                    <SelectItem value="UKG-B">UKG-B</SelectItem>
+                    <SelectItem value="LKG-D">UKG-C</SelectItem>
+                    <SelectItem value="LKG-A">LKG-A</SelectItem>
+                    <SelectItem value="LKG-B">LKG-B</SelectItem>
+                    <SelectItem value="LKG-C">LKG-C</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
