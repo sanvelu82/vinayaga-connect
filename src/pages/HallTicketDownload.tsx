@@ -125,7 +125,15 @@ const HallTicketDownload = () => {
         const photoResponse = await fetch(studentData.photoUrl);
         if (photoResponse.ok) {
           const photoBytes = await photoResponse.arrayBuffer();
-          const studentImage = await pdfDoc.embedPng(photoBytes);
+        let studentImage; // Declare the variable to hold the embedded image
+
+       // Check the URL's extension to determine the image type
+       if (studentData.photoUrl.toLowerCase().endsWith('.jpg') || studentData.photoUrl.toLowerCase().endsWith('.jpeg')) {
+         studentImage = await pdfDoc.embedJpg(photoBytes);
+       } else {
+         // Assume PNG for any other case, since you know it works
+         studentImage = await pdfDoc.embedPng(photoBytes);
+       }
           firstPage.drawImage(studentImage, coords.photo);
         }
       } catch (imgError) { console.error("Could not embed image.", imgError); }
