@@ -88,7 +88,7 @@ const HallTicketDownload = () => {
     const getCoordinatesForClass = (className: string) => {
       // IMPORTANT: Update these coordinates to match your PDF templates
       switch (className) {
-        case "V": return { name: { x: 150, y: 600 }, regNo: { x: 150, y: 575 }, class: { x: 150, y: 550 }, dob: { x: 150, y: 525 }, photo: { x: 450, y: 550, width: 100, height: 120 } };
+        case "V": return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y:585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
         case "IV": return { name: { x: 140, y: 590 }, regNo: { x: 140, y: 565 }, class: { x: 140, y: 540 }, dob: { x: 140, y: 515 }, photo: { x: 440, y: 540, width: 100, height: 120 } };
         case "III": return { name: { x: 140, y: 590 }, regNo: { x: 140, y: 565 }, class: { x: 140, y: 540 }, dob: { x: 140, y: 515 }, photo: { x: 440, y: 540, width: 100, height: 120 } };
         case "II": return { name: { x: 140, y: 590 }, regNo: { x: 140, y: 565 }, class: { x: 140, y: 540 }, dob: { x: 140, y: 515 }, photo: { x: 440, y: 540, width: 100, height: 120 } };

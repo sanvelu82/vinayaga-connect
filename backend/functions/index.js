@@ -86,7 +86,7 @@ exports.getStudentData = functions.https.onRequest((req, res) => {
         name: studentData[3],
         dob: studentData[4],
         className: classSection.includes('-') ? classSection.split('-')[0].trim() : classSection,
-        section: classSection.includes('-') ? classSection.split('-')[1].trim() : 'N/A'
+        section: classSection.includes('-') ? classSection.split('-')[1].trim() : 'A'
       };
       
       res.json(student);
