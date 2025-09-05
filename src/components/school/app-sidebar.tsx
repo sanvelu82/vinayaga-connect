@@ -57,6 +57,7 @@ const quickActions = [
   { icon: Award, label: "Results", href: "#results-section" },
   // ADD THE NEW HALL TICKET LINK HERE
   { icon: Ticket, label: "Hall Ticket", href: "/hall-ticket" },
+   { icon: GraduationCap, label: "Student Portal", href: "/login/student" },
   { icon: MapPin, label: "Location", href: "https://maps.app.goo.gl/nqKhc4gGPuBKybdw7" },
   { icon: Bell, label: "News", href: "#footer" }
 ]
