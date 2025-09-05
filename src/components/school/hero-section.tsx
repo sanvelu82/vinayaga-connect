@@ -1,16 +1,22 @@
+import { useState } from "react"; // ✅ 1. Import useState
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom"; // ✅ 1. Import useNavigate
+import { useNavigate } from "react-router-dom";
 
 export function HeroSection() {
-  const navigate = useNavigate(); // ✅ 2. Initialize the navigate function
-
-  // The 'scrollToLogin' function is no longer needed for the Student Portal button
-  const scrollToLogin = () => {
-    document.getElementById('login-section')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const navigate = useNavigate();
+  const [isNavigating, setIsNavigating] = useState(false); // ✅ 2. State for animation
 
   const scrollToResults = () => {
     document.getElementById('on-results-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // ✅ 3. New handler function for animated navigation
+  const handleNavigate = (path: string) => {
+    setIsNavigating(true); // Start animation
+    setTimeout(() => {
+      navigate(path);
+      // No need to reset state here, as the component will unmount
+    }, 400); // 400ms delay
   };
 
   return (
@@ -47,11 +53,14 @@ export function HeroSection() {
           
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8" style={{ animationDelay: '0.3s' }}>
+            {/* ✅ 4. Updated Button with animation logic */}
             <Button 
-              // ✅ 3. Change onClick to navigate to the '/hall-ticket' route
-              onClick={() => navigate('/hall-ticket')}
+              onClick={() => handleNavigate('/hall-ticket')}
+              disabled={isNavigating} // Disable button during animation
               size="lg"
-              className="hero-gradient border-2 border-white/30 hover:border-white/50 text-white font-semibold px-8 py-3 hover-lift shadow-elegant backdrop-blur-sm"
+              className={`hero-gradient border-2 border-white/30 hover:border-white/50 text-white font-semibold px-8 py-3 hover-lift shadow-elegant backdrop-blur-sm transition-all
+                ${isNavigating ? 'animate-pulse' : ''}
+              `}
               variant="outline"
             >
               Download Hall Ticket

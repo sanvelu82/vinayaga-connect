@@ -55,9 +55,8 @@ const loginRoles = [
 const quickActions = [
   { icon: Home, label: "Home", href: "#hero-section" },
   { icon: Award, label: "Results", href: "#results-section" },
-  // ADD THE NEW HALL TICKET LINK HERE
   { icon: Ticket, label: "Hall Ticket", href: "/hall-ticket" },
-   { icon: GraduationCap, label: "Student Portal", href: "/login/student" },
+  { icon: GraduationCap, label: "Student Portal", href: "/login/student" },
   { icon: MapPin, label: "Location", href: "https://maps.app.goo.gl/nqKhc4gGPuBKybdw7" },
   { icon: Bell, label: "News", href: "#footer" }
 ]
@@ -68,6 +67,7 @@ export function AppSidebar() {
   const { toast } = useToast()
   const navigate = useNavigate()
   const [activeRole, setActiveRole] = useState<string | null>(null)
+  const [activeAction, setActiveAction] = useState<string | null>(null); // ✅ 1. State for animation
 
   const handleLogin = (role: string) => {
     setActiveRole(role)
@@ -76,24 +76,34 @@ export function AppSidebar() {
       title: `${role} Login`,
       description: `Redirecting to ${role} Portal`,
       duration: 2000,
-    })  }
+    })
+  }
 
+  // ✅ 2. Updated click handler with animation logic
   const handleQuickAction = (label: string, href: string) => {
-    if (label === "Results") {
-      document.getElementById('on-results-section')?.scrollIntoView({ behavior: 'smooth' });
-    } else if (label === "Location") {
-      window.open(href, "_blank")
-    } else if (label === "Hall Ticket") {
-      navigate(href);
-    } else {
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+    // Animation for Navigation Links
+    if (href.startsWith('/')) {
+      setActiveAction(label); // Trigger the animation
+      setTimeout(() => {
+        navigate(href);
+        setActiveAction(null); // Reset after navigating
+      }, 400); // 400ms delay for the animation
+      return; // Stop here for navigation links
     }
+
+    // Instant actions for other links
+    if (label === "Location") {
+      window.open(href, "_blank");
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }
+
     toast({
       title: label,
       description: `${label === "Location" ? "Opening location in maps" : `Navigating to ${label}`}`,
       duration: 2000,
-    })
-  }
+    });
+  };
 
   return (
     <Sidebar className="border-r bg-gradient-to-b from-sidebar-background to-sidebar-accent/20" collapsible="icon">
@@ -124,7 +134,11 @@ export function AppSidebar() {
                 <SidebarMenuItem key={action.label}>
                   <SidebarMenuButton
                     onClick={() => handleQuickAction(action.label, action.href)}
-                    className="hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-105"
+                    // ✅ 3. Conditional class for the animation
+                    className={`
+                      hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-105
+                      ${activeAction === action.label ? 'bg-primary/20 animate-pulse' : ''}
+                    `}
                   >
                     <action.icon className="mr-2 h-4 w-4" />
                     {(isMobile || !collapsed) && <span>{action.label}</span>}
