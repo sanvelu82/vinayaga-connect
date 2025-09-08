@@ -7,7 +7,7 @@ export function ResultsSection() {
   // --- Start of new logic ---
 
   // 1. Define the target release date using useMemo to prevent recalculation on re-renders.
-  const targetDate = useMemo(() => new Date('2025-08-17T09:00:00'), []);
+  const targetDate = useMemo(() => new Date('2025-09-30T09:00:00'), []);
 
   // 2. State to hold the remaining time and a flag for when the time is up.
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -111,16 +111,16 @@ export function ResultsSection() {
             
           ))}
         </div>
-        <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+       <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
   <Card className="max-w-md mx-auto shadow-elegant hover-lift transition-smooth">
     <CardHeader className="text-center">
       <CardTitle className="text-2xl text-primary mb-2">
-        {isTimeUp ? "Access Results Portal" : "Results Will Release Soon"}
+        {isTimeUp ? "Access Results Portal" : "Results Will Update Soon"} {/* Changed text */}
       </CardTitle>
       <CardDescription className="text-base">
         {isTimeUp
           ? "Click below to view detailed results and download certificates."
-          : "The results portal will be available soon."}
+          : "Results will be updated soon."} {/* Changed text */}
       </CardDescription>
     </CardHeader>
     <CardContent className="space-y-4">
@@ -140,7 +140,7 @@ export function ResultsSection() {
           size="lg"
           className="w-full font-semibold group shadow-elegant transition-smooth"
         >
-          <span>Results will release soon</span>
+          <span>Results will update soon</span> {/* Changed text */}
         </Button>
       )}
       {/* --- End of Conditional Rendering --- */}
