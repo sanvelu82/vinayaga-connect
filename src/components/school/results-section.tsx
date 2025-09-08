@@ -166,7 +166,7 @@ export function ResultsSection() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              {/* --- Conditional Button Rendering --- */}
+  
               {isTimeUp ? (
                 <Button
                   onClick={handleResultsClick}
@@ -188,7 +188,7 @@ export function ResultsSection() {
                   </span>
                 </Button>
               )}
-              {/* --- End of Conditional Rendering --- */}
+             
 
               <p className="text-xs text-muted-foreground text-center">
                 Results are updated regularly. Contact administration for any queries.
