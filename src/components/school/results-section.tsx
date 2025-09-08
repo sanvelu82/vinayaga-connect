@@ -111,8 +111,48 @@ export function ResultsSection() {
             
           ))}
         </div>
-
         <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+  <Card className="max-w-md mx-auto shadow-elegant hover-lift transition-smooth">
+    <CardHeader className="text-center">
+      <CardTitle className="text-2xl text-primary mb-2">
+        {isTimeUp ? "Access Results Portal" : "Results Will Release Soon"}
+      </CardTitle>
+      <CardDescription className="text-base">
+        {isTimeUp
+          ? "Click below to view detailed results and download certificates."
+          : "The results portal will be available soon."}
+      </CardDescription>
+    </CardHeader>
+    <CardContent className="space-y-4">
+      {/* --- Conditional Button Rendering --- */}
+      {isTimeUp ? (
+        <Button
+          onClick={handleResultsClick}
+          size="lg"
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold group shadow-glow hover:shadow-elegant transition-smooth"
+        >
+          <span>View Results Portal</span>
+          <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-smooth" />
+        </Button>
+      ) : (
+        <Button
+          disabled
+          size="lg"
+          className="w-full font-semibold group shadow-elegant transition-smooth"
+        >
+          <span>Results will release soon</span>
+        </Button>
+      )}
+      {/* --- End of Conditional Rendering --- */}
+
+      <p className="text-xs text-muted-foreground text-center">
+        Results will be updated regularly. Contact administration for any queries.
+      </p>
+    </CardContent>
+  </Card>
+</div>
+
+{/*         <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           <Card className="max-w-md mx-auto shadow-elegant hover-lift transition-smooth">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl text-primary mb-2">
@@ -155,7 +195,7 @@ export function ResultsSection() {
               </p>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
       </div>
     </section>
   )
