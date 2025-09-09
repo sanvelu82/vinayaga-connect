@@ -193,6 +193,19 @@ const HallTicketDownload = () => {
                         {/* Add all your class sections here */}
                         <SelectItem value="V">V</SelectItem>
                         <SelectItem value="IV">IV</SelectItem>
+                        <SelectItem value="III-A">III - A</SelectItem>
+                        <SelectItem value="III-B">III - B</SelectItem>
+                        <SelectItem value="II-A">II - A</SelectItem>
+                        <SelectItem value="II-B">II - B</SelectItem>
+                        <SelectItem value="I-A">I - A</SelectItem>
+                        <SelectItem value="I-B">I - B</SelectItem>
+                        <SelectItem value="I-C">I - C</SelectItem>
+                        <SelectItem value="UKG-A">UKG - A</SelectItem>
+                        <SelectItem value="UKG-B">UKG - B</SelectItem>
+                        <SelectItem value="LKG-D">UKG - C</SelectItem>
+                        {/* <SelectItem value="LKG-A">LKG - A</SelectItem>
+                        <SelectItem value="LKG-B">LKG - B</SelectItem>
+                        <SelectItem value="LKG-C">LKG - C</SelectItem> */}
                         {/* You can add back the other sections as needed */}
                       </SelectContent>
                     </Select>
