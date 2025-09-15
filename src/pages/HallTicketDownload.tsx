@@ -206,9 +206,9 @@ const HallTicketDownload = () => {
                         <SelectItem value="LKG-A">LKG - A</SelectItem>
                         <SelectItem value="LKG-B">LKG - B</SelectItem>
                         <SelectItem value="LKG-C">LKG - C</SelectItem>
-<SelectItem value=""></SelectItem>
-                        <SelectItem value=""></SelectItem>
-                        <SelectItem value=""></SelectItem> 
+<SelectItem value=" ">#</SelectItem>
+                        <SelectItem value=" ">#</SelectItem>
+                        <SelectItem value=" ">#</SelectItem> 
                         {/* You can add back the other sections as needed */}
                       </SelectContent>
                     </Select>
