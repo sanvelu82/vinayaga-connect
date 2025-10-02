@@ -161,7 +161,7 @@ export function ResultsSection() {
               <CardDescription className="text-base">
                 {isTimeUp 
                   ? "Click below to view detailed results and download certificates." 
-                  : "The results portal will unlock automatically on August 17, 2025, at 9:00 AM."
+                  : "The results portal will unlock automatically on October 03, 2025, at 10:00 AM."
                 }
               </CardDescription>
             </CardHeader>
