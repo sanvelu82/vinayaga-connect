@@ -12,7 +12,8 @@ import FacultyLogin from "./pages/login/FacultyLogin";
 import AdminLogin from "./pages/login/AdminLogin";
 // Import the new HallTicketDownload component
 import HallTicketDownload from "./pages/HallTicketDownload";
-
+import { QuizRegistration } from './pages/QuizRegistration';
+import { DownloadQuizHallTicket } from './pages/DownloadQuizHallTicket';
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/login/faculty" element={<FacultyLogin />} />
             <Route path="/login/admin" element={<AdminLogin />} />
             <Route path="/hall-ticket" element={<HallTicketDownload />} />
+            <Route path="/quiz-registration" element={<QuizRegistration />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
