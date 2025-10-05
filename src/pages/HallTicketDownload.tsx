@@ -1,3 +1,88 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft, Info } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+// --- ACTIVE COMPONENT: "COMING SOON" PAGE ---
+// This is the code that is currently active and will be displayed.
+const HallTicketDownload = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen w-full lg:grid lg:grid-cols-2">
+      {/* Left Branding Panel */}
+      <div className="hidden bg-gray-100 lg:flex flex-col items-center justify-center p-8 text-center hero-gradient text-white">
+        <img
+          src="/school-logo.png"
+          alt="School Logo"
+          className="w-32 h-32 mb-6 shadow-glow rounded-full bg-white/10 p-4"
+        />
+        <h1 className="text-4xl font-bold tracking-tight">
+          Examination Portal
+        </h1>
+        <p className="mt-4 text-white/80 max-w-sm">
+          Stay tuned for updates on the upcoming midterm examinations. Best of
+          luck!
+        </p>
+      </div>
+
+      {/* Right Interactive Panel */}
+      <div className="relative flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <Button
+          variant="ghost"
+          onClick={() => navigate(-1)}
+          className="absolute top-6 left-6 text-muted-foreground"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back
+        </Button>
+
+        <div className="w-full max-w-md space-y-8">
+          <Card className="shadow-xl">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl font-bold tracking-tight">
+                Hall Ticket Information
+              </CardTitle>
+              <CardDescription>
+                Updates on availability will be posted here.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg">
+                <Info className="mx-auto h-12 w-12 text-blue-500 mb-4" />
+                <p className="text-lg font-semibold text-foreground">
+                  Coming Soon
+                </p>
+                <p className="mt-1">
+                  The hall ticket for the Second Mid-Term will be released soon.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HallTicketDownload;
+
+
+
+// ==================================================================
+// --- ORIGINAL HALL TICKET GENERATION LOGIC (COMMENTED OUT) ---
+// To restore functionality, comment out the code above and uncomment
+// the code block below.
+// ==================================================================
+
+/*
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader2, ArrowLeft } from "lucide-react";
@@ -32,7 +117,7 @@ interface StudentData {
   photoUrl: string;
 }
 
-const HallTicketDownload = () => {
+const HallTicketDownload_Original = () => {
   // --- STATE AND HOOKS (FROM YOUR LATEST LOGIC + UI) ---
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -146,7 +231,6 @@ const HallTicketDownload = () => {
   // --- JSX (FROM YOUR PREFERRED UI) ---
   return (
     <div className="min-h-screen w-full lg:grid lg:grid-cols-2">
-      {/* Left Branding Panel */}
       <div className="hidden bg-gray-100 lg:flex flex-col items-center justify-center p-8 text-center hero-gradient text-white">
         <img src="/school-logo.png" alt="School Logo" className="w-32 h-32 mb-6 shadow-glow rounded-full bg-white/10 p-4" />
         <h1 className="text-4xl font-bold tracking-tight">Showcase Your Knowledge</h1>
@@ -155,7 +239,6 @@ const HallTicketDownload = () => {
         </p>
       </div>
 
-      {/* Right Interactive Panel */}
       <div className="relative flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <Button
             variant="ghost"
@@ -190,7 +273,6 @@ const HallTicketDownload = () => {
                     <Select onValueChange={handleSelectChange} value={formData.classSection} required>
                       <SelectTrigger><SelectValue placeholder="Select Class & Section" /></SelectTrigger>
                       <SelectContent>
-                        {/* Add all your class sections here */}
                         <SelectItem value="V">V</SelectItem>
                         <SelectItem value="IV">IV</SelectItem>
                         <SelectItem value="III-A">III - A</SelectItem>
@@ -208,8 +290,7 @@ const HallTicketDownload = () => {
                         <SelectItem value="LKG-C">LKG - C</SelectItem>
                         <SelectItem value=" ">#</SelectItem>
                         <SelectItem value=" ">#</SelectItem>
-                        <SelectItem value=" ">#</SelectItem> 
-                        {/* You can add back the other sections as needed */}
+                        <SelectItem value=" ">#</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -245,4 +326,7 @@ const HallTicketDownload = () => {
   );
 };
 
-export default HallTicketDownload;
+// To use this, you would also need to change the export default at the top
+// from HallTicketDownload to HallTicketDownload_Original
+// export default HallTicketDownload_Original;
+*/

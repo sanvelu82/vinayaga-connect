@@ -15,7 +15,7 @@ import { QuizRegistration } from './pages/QuizRegistration';
 import { DownloadQuizHallTicket } from './pages/DownloadQuizHallTicket';
 import { Advertisement } from "./pages/Advertisement";
 import { useEffect, useState } from "react";
-
+import FacultyDashboard from './pages/FacultyDashboard';
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -44,15 +44,16 @@ const App = () => {
               <Route path="/login/admin" element={<AdminLogin />} />
               <Route path="/hall-ticket" element={<HallTicketDownload />} />
               <Route path="/quiz-registration" element={<QuizRegistration />} />
+              <Route path="/faculty-dashboard" element={<FacultyDashboard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-          <Advertisement
+          {/* <Advertisement
             isOpen={isAdOpen}
             onClose={() => setIsAdOpen(false)}
             imageUrl="https://i.ibb.co/mCmk676Y/Untitled-2.webp"
             linkUrl="https://ibb.co/4ZczPxP"
-          />
+          /> */}
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
