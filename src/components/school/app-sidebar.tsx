@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { GraduationCap, Users, BookOpen, Shield, Award, Bell, Home, MapPin, Ticket } from "lucide-react"
+import { GraduationCap, Users, BookOpen, Shield, Award, Bell, Home, MapPin, Ticket, ScrollText } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { useNavigate } from "react-router-dom"
 import {
@@ -58,7 +58,12 @@ const quickActions = [
   { icon: Ticket, label: "Hall Ticket", href: "/hall-ticket" },
   { icon: GraduationCap, label: "Student Portal", href: "/login/student" },
   { icon: MapPin, label: "Location", href: "https://maps.app.goo.gl/nqKhc4gGPuBKybdw7" },
-  { icon: Bell, label: "News", href: "#footer" }
+  { icon: Bell, label: "News", href: "#footer" },
+  { 
+    icon: ScrollText,
+    label: "Lesson Plan Entry", 
+    href: "https://script.google.com/macros/s/AKfycbwm53AffheRhFy1y5yeBnLZlWMrWZ_HXb_koAuYlZpyUvjwYtXBD2TK6wk5QzbVJAAp2A/exec"
+  }
 ]
 
 export function AppSidebar() {
@@ -67,7 +72,7 @@ export function AppSidebar() {
   const { toast } = useToast()
   const navigate = useNavigate()
   const [activeRole, setActiveRole] = useState<string | null>(null)
-  const [activeAction, setActiveAction] = useState<string | null>(null); // ✅ 1. State for animation
+  const [activeAction, setActiveAction] = useState<string | null>(null)
 
   const handleLogin = (role: string) => {
     setActiveRole(role)
@@ -79,31 +84,44 @@ export function AppSidebar() {
     })
   }
 
-  // ✅ 2. Updated click handler with animation logic
   const handleQuickAction = (label: string, href: string) => {
-    // Animation for Navigation Links
-    if (href.startsWith('/')) {
-      setActiveAction(label); // Trigger the animation
+    // Internal app routes (navigate)
+    if (href.startsWith("/")) {
+      setActiveAction(label)
       setTimeout(() => {
-        navigate(href);
-        setActiveAction(null); // Reset after navigating
-      }, 400); // 400ms delay for the animation
-      return; // Stop here for navigation links
+        navigate(href)
+        setActiveAction(null)
+      }, 400)
+      toast({
+        title: label,
+        description: `Navigating to ${label}`,
+        duration: 2000,
+      })
+      return
     }
 
-    // Instant actions for other links
-    if (label === "Location") {
-      window.open(href, "_blank");
-    } else {
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    // External links (Google Maps, Lesson Plan Entry, etc.)
+    if (href.startsWith("http")) {
+      window.open(href, "_blank", "noopener,noreferrer")
+      toast({
+        title: label,
+        description: `Opening ${label} in a new tab`,
+        duration: 2000,
+      })
+      return
     }
 
-    toast({
-      title: label,
-      description: `${label === "Location" ? "Opening location in maps" : `Navigating to ${label}`}`,
-      duration: 2000,
-    });
-  };
+    // Hash links (#hero-section, #results-section)
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+      toast({
+        title: label,
+        description: `Scrolling to ${label}`,
+        duration: 2000,
+      })
+    }
+  }
 
   return (
     <Sidebar className="border-r bg-gradient-to-b from-sidebar-background to-sidebar-accent/20" collapsible="icon">
@@ -134,7 +152,6 @@ export function AppSidebar() {
                 <SidebarMenuItem key={action.label}>
                   <SidebarMenuButton
                     onClick={() => handleQuickAction(action.label, action.href)}
-                    // ✅ 3. Conditional class for the animation
                     className={`
                       hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-105
                       ${activeAction === action.label ? 'bg-primary/20 animate-pulse' : ''}
