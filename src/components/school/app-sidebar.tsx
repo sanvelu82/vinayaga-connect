@@ -54,18 +54,23 @@ const loginRoles = [
 
 const quickActions = [
   { icon: Home, label: "Home", href: "#hero-section" },
+  // New Item Added Below
+  { 
+    icon: Gamepad2, 
+    label: "Quiz Contest", 
+    href: "https://quizcontest.vercel.app/" 
+  },
   { icon: Award, label: "Results", href: "#results-section" },
   { icon: Ticket, label: "Hall Ticket", href: "/hall-ticket" },
   { icon: GraduationCap, label: "Student Portal", href: "/login/student" },
   { icon: MapPin, label: "Location", href: "https://maps.app.goo.gl/nqKhc4gGPuBKybdw7" },
   { icon: Bell, label: "News", href: "#footer" },
   { 
-    icon: ScrollText,
+    icon: ScrollText, 
     label: "Lesson Plan Entry", 
-    href: "https://script.google.com/macros/s/AKfycbwm53AffheRhFy1y5yeBnLZlWMrWZ_HXb_koAuYlZpyUvjwYtXBD2TK6wk5QzbVJAAp2A/exec"
+    href: "https://script.google.com/macros/s/AKfycbwm53AffheRhFy1y5yeBnLZlWMrWZ_HXb_koAuYlZpyUvjwYtXBD2TK6wk5QzbVJAAp2A/exec" 
   }
 ]
-
 export function AppSidebar() {
   const { state, isMobile } = useSidebar()
   const collapsed = state === "collapsed"
