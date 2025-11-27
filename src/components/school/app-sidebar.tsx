@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { GraduationCap, Users, BookOpen, Shield, Award, Bell, Home, MapPin, Ticket, ScrollText } from "lucide-react"
+import { GraduationCap, Users, BookOpen, Shield, Award, Bell, Home, MapPin, Ticket, ScrollText, Gamepad2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { useNavigate } from "react-router-dom"
 import {
