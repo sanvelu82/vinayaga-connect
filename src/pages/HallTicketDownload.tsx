@@ -313,7 +313,10 @@ const HallTicketDownload = () => {
                     <Label htmlFor="classSection">Class & Section</Label>
                     <Select onValueChange={handleSelectChange} value={formData.classSection} required>
                       <SelectTrigger><SelectValue placeholder="Select Class & Section" /></SelectTrigger>
-                      <SelectContent>
+                      
+                      {/* 👇 UPDATE THIS LINE 👇 */}
+                      <SelectContent className="max-h-[300px] overflow-y-auto">
+                        
                         <SelectItem value="V">V</SelectItem>
                         <SelectItem value="IV">IV</SelectItem>
                         <SelectItem value="III-A">III - A</SelectItem>
