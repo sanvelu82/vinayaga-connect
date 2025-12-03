@@ -1,78 +1,78 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Info } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+// import React from "react";
+// import { useNavigate } from "react-router-dom";
+// import { ArrowLeft, Info } from "lucide-react";
+// import {
+//   Card,
+//   CardContent,
+//   CardDescription,
+//   CardHeader,
+//   CardTitle,
+// } from "@/components/ui/card";
+// import { Button } from "@/components/ui/button";
 
-// --- ACTIVE COMPONENT: "COMING SOON" PAGE ---
-// This is the code that is currently active and will be displayed.
-const HallTicketDownload = () => {
-  const navigate = useNavigate();
+// // --- ACTIVE COMPONENT: "COMING SOON" PAGE ---
+// // This is the code that is currently active and will be displayed.
+// const HallTicketDownload = () => {
+//   const navigate = useNavigate();
 
-  return (
-    <div className="min-h-screen w-full lg:grid lg:grid-cols-2">
-      {/* Left Branding Panel */}
-      <div className="hidden bg-gray-100 lg:flex flex-col items-center justify-center p-8 text-center hero-gradient text-white">
-        <img
-          src="/school-logo.png"
-          alt="School Logo"
-          className="w-32 h-32 mb-6 shadow-glow rounded-full bg-white/10 p-4"
-        />
-        <h1 className="text-4xl font-bold tracking-tight">
-          Examination Portal
-        </h1>
-        <p className="mt-4 text-white/80 max-w-sm">
-          Stay tuned for updates on the upcoming midterm examinations. Best of
-          luck!
-        </p>
-      </div>
+//   return (
+//     <div className="min-h-screen w-full lg:grid lg:grid-cols-2">
+//       {/* Left Branding Panel */}
+//       <div className="hidden bg-gray-100 lg:flex flex-col items-center justify-center p-8 text-center hero-gradient text-white">
+//         <img
+//           src="/school-logo.png"
+//           alt="School Logo"
+//           className="w-32 h-32 mb-6 shadow-glow rounded-full bg-white/10 p-4"
+//         />
+//         <h1 className="text-4xl font-bold tracking-tight">
+//           Examination Portal
+//         </h1>
+//         <p className="mt-4 text-white/80 max-w-sm">
+//           Stay tuned for updates on the upcoming midterm examinations. Best of
+//           luck!
+//         </p>
+//       </div>
 
-      {/* Right Interactive Panel */}
-      <div className="relative flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <Button
-          variant="ghost"
-          onClick={() => navigate(-1)}
-          className="absolute top-6 left-6 text-muted-foreground"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back
-        </Button>
+//       {/* Right Interactive Panel */}
+//       <div className="relative flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+//         <Button
+//           variant="ghost"
+//           onClick={() => navigate(-1)}
+//           className="absolute top-6 left-6 text-muted-foreground"
+//         >
+//           <ArrowLeft className="mr-2 h-4 w-4" />
+//           Back
+//         </Button>
 
-        <div className="w-full max-w-md space-y-8">
-          <Card className="shadow-xl">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold tracking-tight">
-                Hall Ticket Information
-              </CardTitle>
-              <CardDescription>
-                Updates on availability will be posted here.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg">
-                <Info className="mx-auto h-12 w-12 text-blue-500 mb-4" />
-                <p className="text-lg font-semibold text-foreground">
-                  Coming Soon
-                </p>
-                <p className="mt-1">
-                  The hall ticket for the Second Mid-Term will be released soon.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </div>
-  );
-};
+//         <div className="w-full max-w-md space-y-8">
+//           <Card className="shadow-xl">
+//             <CardHeader className="text-center">
+//               <CardTitle className="text-2xl font-bold tracking-tight">
+//                 Hall Ticket Information
+//               </CardTitle>
+//               <CardDescription>
+//                 Updates on availability will be posted here.
+//               </CardDescription>
+//             </CardHeader>
+//             <CardContent>
+//               <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg">
+//                 <Info className="mx-auto h-12 w-12 text-blue-500 mb-4" />
+//                 <p className="text-lg font-semibold text-foreground">
+//                   Coming Soon
+//                 </p>
+//                 <p className="mt-1">
+//                   The hall ticket for the Second Mid-Term will be released soon.
+//                 </p>
+//               </div>
+//             </CardContent>
+//           </Card>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
-export default HallTicketDownload;
+// export default HallTicketDownload;
 
 
 
@@ -82,7 +82,6 @@ export default HallTicketDownload;
 // the code block below.
 // ==================================================================
 
-/*
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader2, ArrowLeft } from "lucide-react";
@@ -104,10 +103,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
+
+// --- PDF IMPORTS ---
+import { PDFDocument, rgb } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit"; 
 import download from "downloadjs";
 
-// --- INTERFACE (FROM YOUR LATEST LOGIC) ---
+// --- INTERFACE ---
 interface StudentData {
   name: string;
   dob: string;
@@ -117,8 +119,7 @@ interface StudentData {
   photoUrl: string;
 }
 
-const HallTicketDownload_Original = () => {
-  // --- STATE AND HOOKS (FROM YOUR LATEST LOGIC + UI) ---
+const HallTicketDownload = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     registerNumber: "",
@@ -130,7 +131,6 @@ const HallTicketDownload_Original = () => {
   const [isDownloading, setIsDownloading] = useState(false);
   const { toast } = useToast();
 
-  // --- FUNCTIONS (ALL FROM YOUR LATEST LOGIC) ---
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -165,70 +165,111 @@ const HallTicketDownload_Original = () => {
     }
   };
 
+  // --- PDF GENERATION LOGIC ---
   const handleDownloadFromTemplate = async () => {
     if (!studentData) return;
     setIsDownloading(true);
 
-    const getCoordinatesForClass = (className: string) => {
-      // Your specific coordinates
-      switch (className) {
-        case "V": return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y: 585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
-        case "IV":  return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y: 585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
-        case "III": return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y: 585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
-        case "II":  return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y: 585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
-        case "I":   return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y: 585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
-        default:    return { name: { x: 100, y: 629 }, regNo: { x: 147, y: 607 }, class: { x: 103, y: 585 }, dob: { x: 160, y: 563 }, photo: { x: 428, y: 528.5, width: 108.5, height: 123.5 } };
-      }
+    // ---------------------------------------------------------
+    // 📍 COORDINATES CONFIGURATION
+    // ---------------------------------------------------------
+    const getCoordinates = (className: string) => {
+       return {
+        regNo:   { x: 160, y: 640 }, 
+        name:    { x: 160, y: 612 },
+        class:   { x: 160, y: 583 },
+        section: { x: 320, y: 582 },
+        dob:     { x: 160, y: 553 },
+        // 🗓️ NEW COORDINATE FOR DATE & TIME
+        generatedDate: { x: 30, y: 105 }, // Bottom right corner
+        photo:   { x: 462.5, y: 537.3, width: 90, height: 104 }
+      };
     };
 
     try {
-      const classNameForTemplate = studentData.className;
-      const templatePath = `/templates/${classNameForTemplate}.pdf`;
+      // 1. LOAD TEMPLATE
+      const templateFilename = `${studentData.className}.pdf`;
+      const templatePath = `/templates/${templateFilename}`; 
+      
       const response = await fetch(templatePath);
       if (!response.ok) {
-        throw new Error(`Template not found for class "${classNameForTemplate}". Check filename.`);
+        throw new Error(`Template not found for Class ${studentData.className}`);
       }
-      
       const existingPdfBytes = await response.arrayBuffer();
       const pdfDoc = await PDFDocument.load(existingPdfBytes);
-      const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
+      // 2. LOAD CUSTOM FONT (Cambria)
+      pdfDoc.registerFontkit(fontkit);
+      const fontUrl = '/fonts/Cambria.ttf';
+      const fontResponse = await fetch(fontUrl);
+      if (!fontResponse.ok) {
+         throw new Error("Could not find Cambria.ttf in public/fonts folder.");
+      }
+      const fontBytes = await fontResponse.arrayBuffer();
+      const cambriaFont = await pdfDoc.embedFont(fontBytes);
+
       const firstPage = pdfDoc.getPages()[0];
+      const coords = getCoordinates(studentData.className);
+      
+      const textOptions = { font: cambriaFont, size: 11, color: rgb(0, 0, 0) };
 
-      const coords = getCoordinatesForClass(classNameForTemplate);
-      const commonOptions = { font, size: 12, color: rgb(0, 0, 0) };
+      // 3. DRAW TEXT
+      firstPage.drawText(studentData.registerNumber, { ...coords.regNo, ...textOptions });
+      firstPage.drawText(studentData.name, { ...coords.name, ...textOptions });
+      firstPage.drawText(studentData.className, { ...coords.class, ...textOptions });
+      firstPage.drawText(studentData.section, { ...coords.section, ...textOptions });
+      firstPage.drawText(studentData.dob, { ...coords.dob, ...textOptions });
 
-      firstPage.drawText(studentData.name, { ...coords.name, ...commonOptions });
-      firstPage.drawText(studentData.registerNumber, { ...coords.regNo, ...commonOptions });
-      firstPage.drawText((studentData.className === "LKG" && studentData.section === "D") ? "UKG - C" : `${studentData.className} - ${studentData.section}`, { ...coords.class, ...commonOptions });
-      firstPage.drawText(studentData.dob, { ...coords.dob, ...commonOptions });
+      // 🗓️ DRAW GENERATED DATE AND TIME (WITH SECONDS)
+      const now = new Date();
+      // Format example: "12/03/2025, 10:30:45 AM"
+      const dateTimeString = now.toLocaleString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false // Change to false if you want 24-hour format
+      });
 
+      firstPage.drawText(`Generated on: ${dateTimeString}`, { 
+          ...coords.generatedDate, 
+          font: cambriaFont, 
+          size: 9, 
+          color: rgb(0.3, 0.3, 0.3) 
+      });
+
+      // 4. EMBED PHOTO
       try {
-        const photoResponse = await fetch(studentData.photoUrl);
-        if (photoResponse.ok) {
-          const photoBytes = await photoResponse.arrayBuffer();
-          let studentImage;
-          if (studentData.photoUrl.toLowerCase().endsWith('.jpg') || studentData.photoUrl.toLowerCase().endsWith('.jpeg')) {
-            studentImage = await pdfDoc.embedJpg(photoBytes);
-          } else {
-            studentImage = await pdfDoc.embedPng(photoBytes);
+        if (studentData.photoUrl) {
+          const photoResponse = await fetch(studentData.photoUrl);
+          if (photoResponse.ok) {
+            const photoBytes = await photoResponse.arrayBuffer();
+            let studentImage;
+            const isJpg = studentData.photoUrl.toLowerCase().match(/\.(jpeg|jpg)$/);
+            
+            if (isJpg) studentImage = await pdfDoc.embedJpg(photoBytes);
+            else studentImage = await pdfDoc.embedPng(photoBytes);
+            
+            firstPage.drawImage(studentImage, coords.photo);
           }
-          firstPage.drawImage(studentImage, coords.photo);
         }
-      } catch (imgError) { console.error("Could not embed image.", imgError); }
+      } catch (imgError) { 
+        console.error("Could not embed image.", imgError); 
+      }
 
       const pdfBytes = await pdfDoc.save();
       download(pdfBytes, `hall-ticket-${studentData.registerNumber}.pdf`, "application/pdf");
 
     } catch (err: any) {
       console.error("Failed to generate PDF:", err);
-      toast({ title: "Download Failed", description: err.message || "An unknown error occurred.", variant: "destructive" });
+      toast({ title: "Download Failed", description: err.message, variant: "destructive" });
     } finally {
       setIsDownloading(false);
     }
   };
 
-
-  // --- JSX (FROM YOUR PREFERRED UI) ---
   return (
     <div className="min-h-screen w-full lg:grid lg:grid-cols-2">
       <div className="hidden bg-gray-100 lg:flex flex-col items-center justify-center p-8 text-center hero-gradient text-white">
@@ -288,9 +329,6 @@ const HallTicketDownload_Original = () => {
                         <SelectItem value="LKG-A">LKG - A</SelectItem>
                         <SelectItem value="LKG-B">LKG - B</SelectItem>
                         <SelectItem value="LKG-C">LKG - C</SelectItem>
-                        <SelectItem value=" ">#</SelectItem>
-                        <SelectItem value=" ">#</SelectItem>
-                        <SelectItem value=" ">#</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -326,7 +364,4 @@ const HallTicketDownload_Original = () => {
   );
 };
 
-// To use this, you would also need to change the export default at the top
-// from HallTicketDownload to HallTicketDownload_Original
-// export default HallTicketDownload_Original;
-*/
+export default HallTicketDownload;
