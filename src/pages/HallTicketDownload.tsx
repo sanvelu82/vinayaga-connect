@@ -188,7 +188,12 @@ const HallTicketDownload = () => {
 
     try {
       // 1. LOAD TEMPLATE
+      
       const templateFilename = `${studentData.className}.pdf`;
+      if(studentData.section===`D` && studentData.className===`LKG`){
+        studentData.className=`UKG`;
+        studentData.section='C';
+       }
       const templatePath = `/templates/${templateFilename}`; 
       
       const response = await fetch(templatePath);
